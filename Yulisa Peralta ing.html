@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yulisa Peralta Romero | Ing. de Seguridad SSOMA & Innovación Tecnológica</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --surface: rgba(10, 15, 30, 0.93);
+            --primary: #1E3A8A;      /* Azul marino ejecutivo */
+            --secondary: #2563EB;    /* Azul técnico brillante */
+            --accent: #00FFFF;       /* Cian neón de alta tecnología */
+            --steel: #94A3B8;        /* Gris titanio profesional */
+            --glow-primary: rgba(37, 99, 235, 0.45);
+            --glow-accent: rgba(0, 255, 255, 0.4);
+            --text-main: #FFFFFF;
+            --text-muted: #CBD5E1;
+            --border-tech: rgba(0, 255, 255, 0.35);
+            --shadow-tech: 0 40px 90px rgba(0, 0, 0, 0.9), 0 0 45px var(--glow-primary);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(5, 8, 15, 0.8), rgba(5, 8, 15, 0.92)), url('Designer (75).png') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-main);
+        }
+
+        /* Barra de Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 30, 0.96);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-tech);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            letter-spacing: 2.5px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+            text-shadow: 0 0 12px var(--glow-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--glow-accent);
+        }
+
+        /* Contenedor Horizontal Principal */
+        .horizontal-container {
+            display: flex;
+            width: max-content;
+            height: 100vh;
+            padding-top: 6rem;
+            align-items: center;
+            transition: transform 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
+        }
+
+        /* Paneles individuales */
+        .panel {
+            width: 100vw;
+            height: calc(100vh - 6rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 5vw;
+            flex-shrink: 0;
+        }
+
+        /* Pantalla Principal (Hero) */
+        .hero-horizontal {
+            max-width: 1450px;
+            width: 100%;
+            background: var(--surface);
+            backdrop-filter: blur(40px);
+            border: 3px solid var(--border-tech);
+            border-radius: 50px;
+            padding: 5.5rem 6.5rem;
+            box-shadow: var(--shadow-tech);
+            display: flex;
+            align-items: center;
+            gap: 5.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-horizontal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+            box-shadow: 0 0 25px var(--accent);
+        }
+
+        .hero-img-container {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .hero-img-hd {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--accent);
+            box-shadow: 0 0 35px var(--glow-accent), 0 30px 60px rgba(0,0,0,0.95);
+        }
+
+        .hero-info h2 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 0 15px var(--glow-accent);
+        }
+
+        .hero-info h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-info h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--glow-accent);
+        }
+
+        .hero-info p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2.8rem;
+            line-height: 1.85;
+        }
+
+        .pilares-tag-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 2.8rem;
+        }
+
+        .pilar-tag {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.7rem 1.6rem;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .btn-action-group {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 1.2rem 3.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-wa {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 45px rgba(37, 211, 102, 0.7);
+        }
+
+        .btn-linkedin {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 14px 35px var(--glow-primary);
+        }
+
+        .btn-linkedin:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 45px rgba(37, 99, 235, 0.7);
+        }
+
+        /* Tarjetas de Secciones Horizontales */
+        .section-box {
+            background: var(--surface);
+            backdrop-filter: blur(40px);
+            border: 3px solid var(--border-tech);
+            border-radius: 45px;
+            padding: 4.5rem 5.5rem;
+            max-width: 1400px;
+            width: 100%;
+            box-shadow: var(--shadow-tech);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--glow-accent);
+        }
+
+        /* Sliders / Carruseles con Transición Fluida */
+        .slider-container {
+            position: relative;
+            background: rgba(15, 23, 42, 0.94);
+            border: 3px solid var(--secondary);
+            border-radius: 35px;
+            padding: 4rem;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.85);
+            border-left: 12px solid var(--accent);
+        }
+
+        .slide-content, .slide-content-2, .slide-content-3 {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .slide-content.active, .slide-content-2.active, .slide-content-3.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-content h4, .slide-content-2 h4, .slide-content-3 h4 {
+            font-size: 2.3rem;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            font-weight: 900;
+        }
+
+        .slide-content .company-date, .slide-content-2 .company-date, .slide-content-3 .company-date {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.8rem;
+            display: block;
+            text-shadow: 0 0 15px var(--glow-accent);
+        }
+
+        .slide-content p, .slide-content-2 p, .slide-content-3 p {
+            color: var(--text-muted);
+            font-size: 1.35rem;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.8rem;
+        }
+
+        .slider-dots, .slider-dots-2, .slider-dots-3 {
+            display: flex;
+            gap: 15px;
+        }
+
+        .dot, .dot-2, .dot-3 {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active, .dot-2.active, .dot-3.active {
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--glow-accent);
+            width: 45px;
+            border-radius: 8px;
+        }
+
+        .slider-btn {
+            background: rgba(0, 255, 255, 0.2);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 1rem 2.2rem;
+            border-radius: 15px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
+            color: #0A0F1E;
+            box-shadow: 0 0 25px var(--glow-accent);
+        }
+
+        /* Estilo Creativo para Valoraciones Oficiales */
+        .val-badge-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .val-seal-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 25px var(--glow-accent);
+            animation: pulseSeal 3s infinite alternate;
+        }
+
+        @keyframes pulseSeal {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--glow-accent)); }
+            100% { transform: scale(1.08); filter: drop-shadow(0 0 25px var(--glow-accent)); }
+        }
+
+        .val-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-main);
+            max-width: 900px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .val-company {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .val-signer {
+            font-size: 1.1rem;
+            color: var(--steel);
+            font-weight: 700;
+            margin-top: 0.3rem;
+            letter-spacing: 1px;
+        }
+
+        /* Grids para Soluciones y Empresa */
+        .grid-horizontal {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card-horizontal-item {
+            background: rgba(15, 23, 42, 0.94);
+            border: 2px solid var(--border-tech);
+            border-radius: 30px;
+            padding: 4rem;
+            border-top: 10px solid var(--accent);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-horizontal-item h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+        }
+
+        .card-horizontal-item p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-card {
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.15);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 1rem 2.2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .btn-card:hover {
+            background: var(--accent);
+            color: #0A0F1E;
+            box-shadow: 0 0 25px var(--glow-accent);
+        }
+
+        /* Contacto Horizontal */
+        .contact-horizontal-box {
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .contact-horizontal-box h3 {
+            font-size: 3rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .contact-horizontal-box p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+            line-height: 1.9;
+        }
+
+        @media(max-width: 900px) {
+            body, html { overflow: auto; }
+            .horizontal-container { flex-direction: column; width: 100%; height: auto; padding-top: 5rem; }
+            .panel { width: 100vw; height: auto; padding: 4rem 5%; }
+            .hero-horizontal { flex-direction: column; text-align: center; padding: 3rem 2rem; }
+            .btn-action-group { justify-content: center; }
+            .grid-horizontal { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav>
+        <div class="nav-logo">YULISA PERALTA <span>ROMERO</span></div>
+        <ul class="nav-links">
+            <li><a onclick="scrollToPanel(0)">Inicio</a></li>
+            <li><a onclick="scrollToPanel(1)">Trayectoria</a></li>
+            <li><a onclick="scrollToPanel(2)">Certificados</a></li>
+            <li><a onclick="scrollToPanel(3)">Valoraciones</a></li>
+            <li><a onclick="scrollToPanel(4)">Empresa & App</a></li>
+            <li><a onclick="scrollToPanel(5)">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor con Desplazamiento Horizontal -->
+    <div class="horizontal-container" id="horizontalContainer">
+        
+        <!-- Panel 0: Inicio / Hero -->
+        <section class="panel" id="panel-0">
+            <div class="hero-horizontal">
+                <div class="hero-img-container">
+                    <img src="imagen (2).jpg" alt="Ing. Yulisa Peralta Romero" class="hero-img-hd">
+                </div>
+                <div class="hero-info">
+                    <h2>Ingeniería de Seguridad Laboral y Ambiental</h2>
+                    <h1>Yulisa Yullana <span>Peralta Romero</span></h1>
+                    <p><strong>Especialista en gestión ejecutiva SSOMA, automatización de procesos con inteligencia artificial y desarrollo de soluciones tecnológicas corporativas.</strong></p>
+                    
+                    <div class="pilares-tag-container">
+                        <span class="pilar-tag"><i class="fa-solid fa-shield-halved"></i> Gestión SSOMA</span>
+                        <span class="pilar-tag"><i class="fa-solid fa-brain"></i> IA & Automatización</span>
+                        <span class="pilar-tag"><i class="fa-solid fa-code"></i> Arquitectura Tech</span>
+                    </div>
+
+                    <div class="btn-action-group">
+                        <a href="https://wa.link/a2522j" target="_blank" class="btn-custom btn-wa">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i> WhatsApp Directo
+                        </a>
+                        <a href="https://www.linkedin.com/in/yulisaperalta-8845/" target="_blank" class="btn-custom btn-linkedin">
+                            <i class="fa-brands fa-linkedin-in" style="font-size: 1.5rem;"></i> LinkedIn Pro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 1: Trayectoria Profesional -->
+        <section class="panel" id="panel-1">
+            <div class="section-box">
+                <h2 class="section-title">Trayectoria <span>Profesional</span></h2>
+                <div class="slider-container">
+                    
+                    <div class="slide-content active" id="slide-0">
+                        <h4>Asistente de Seguridad y Salud Ocupacional | COSAPI</h4>
+                        <span class="company-date">Febrero 2026 - Presente</span>
+                        <p>Liderazgo en comités de seguridad, gestión avanzada de reportes flash de incidentes, implementación de estándares corporativos y desarrollo de soluciones tecnológicas e innovación orientadas a optimizar la seguridad en proyectos de construcción.</p>
+                    </div>
+
+                    <div class="slide-content" id="slide-1">
+                        <h4>Prevencionista de Riesgos | 2A Ingenieros S.A.C. (Proyecto Park Prado)</h4>
+                        <span class="company-date">Diciembre 2024 - Enero 2025</span>
+                        <p>Elaboración y ejecución integral de programas de prevención, control riguroso de riesgos críticos en obra, inducciones de seguridad y supervisión del estricto cumplimiento normativo en campo.</p>
+                    </div>
+
+                    <div class="slide-content" id="slide-2">
+                        <h4>Asesoría y Proyectos en Seguridad Operativa | 2A Ingeniería & Negocios</h4>
+                        <span class="company-date">2024 - 2025</span>
+                        <p>Supervisión experta de actividades críticas y de alto riesgo, control documental de seguridad, matrices IPERC y asesoramiento técnico especializado para garantizar la continuidad en proyectos de ingeniería.</p>
+                    </div>
+
+                    <div class="slide-content" id="slide-3">
+                        <h4>Gestión SSOMA y Control Integral | AE & R CG / SGL / RJ Gonzales</h4>
+                        <span class="company-date">2024 - 2025</span>
+                        <p>Ejecución de auditorías internas, cumplimiento normativo de seguridad y salud en el trabajo, mitigación de riesgos laborales y gestión de calidad en acabados y proyectos generales.</p>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="currentSlide(0)"></span>
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                        <button class="slider-btn" onclick="nextSlide()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 2: Certificados & Diplomas Clave -->
+        <section class="panel" id="panel-2">
+            <div class="section-box">
+                <h2 class="section-title">Certificados <span>& Diplomas Clave</span></h2>
+                <div class="slider-container">
+                    
+                    <div class="slide-content-2 active" id="c-slide-0">
+                        <h4>Grado Académico | Título en Ingeniería</h4>
+                        <span class="company-date">Universidad Tecnológica del Perú (UTP)</span>
+                        <p>Título universitario oficial registrado y avalado en gestión de seguridad laboral y ambiental, respaldando la formación técnica y científica de alto nivel[cite: 1, 3, 4].</p>
+                    </div>
+
+                    <div class="slide-content-2" id="c-slide-1">
+                        <h4>Especialización UTEC Posgrado & COSAPI</h4>
+                        <span class="company-date">Universidad Corporativa UCC COSAPI</span>
+                        <p>Certificaciones corporativas avanzadas en Innovación, Adaptabilidad al Cambio y Dominio de IA Copilot orientadas a la excelencia constructiva.</p>
+                    </div>
+
+                    <div class="slide-content-2" id="c-slide-2">
+                        <h4>AI Construction Summit 2026</h4>
+                        <span class="company-date">AECODE Ingeniería & Construcción</span>
+                        <p>Certificado oficial de participación en congreso especializado sobre la aplicación de inteligencia artificial y automatización avanzada en el sector construcción.</p>
+                    </div>
+
+                    <div class="slide-content-2" id="c-slide-3">
+                        <h4>Microsoft Learn & Desarrollo C# / Cloud</h4>
+                        <span class="company-date">Microsoft & Centros Técnicos</span>
+                        <p>Acreditaciones y logros oficiales en plataformas cloud, arquitectura de software, C# y flujos automatizados de gestión empresarial.</p>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="prevCert()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <div class="slider-dots-2">
+                            <span class="dot-2 active" onclick="currentCert(0)"></span>
+                            <span class="dot-2" onclick="currentCert(1)"></span>
+                            <span class="dot-2" onclick="currentCert(2)"></span>
+                            <span class="dot-2" onclick="currentCert(3)"></span>
+                        </div>
+                        <button class="slider-btn" onclick="nextCert()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 3: Valoraciones Oficiales de Trabajo -->
+        <section class="panel" id="panel-3">
+            <div class="section-box">
+                <h2 class="section-title">Valoraciones <span>Oficiales de Trabajo</span></h2>
+                <div class="slider-container">
+                    
+                    <div class="slide-content-3 active" id="v-slide-0">
+                        <div class="val-badge-container">
+                            <i class="fa-solid fa-certificate val-seal-icon"></i>
+                            <p class="val-quote">"Ha demostrado puntualidad, honestidad y responsabilidad en las labores encomendadas, destacándose por su excelente desempeño, control de riesgos y supervisión en obra."</p>
+                            <h4 class="val-company">2A Ingeniería & Negocios</h4>
+                            <span class="val-signer">Acreditado por Gerencia General</span>
+                        </div>
+                    </div>
+
+                    <div class="slide-content-3" id="v-slide-1">
+                        <div class="val-badge-container">
+                            <i class="fa-solid fa-award val-seal-icon"></i>
+                            <p class="val-quote">"Se ha desempeñado de manera altamente satisfactoria, destacándose por su gran profesionalismo, cumplimiento normativo y una conducta intachable en seguridad."</p>
+                            <h4 class="val-company">AE&R Construcciones Generales S.A.C.</h4>
+                            <span class="val-signer">Acreditado por Gerencia General</span>
+                        </div>
+                    </div>
+
+                    <div class="slide-content-3" id="v-slide-2">
+                        <div class="val-badge-container">
+                            <i class="fa-solid fa-shield-halved val-seal-icon"></i>
+                            <p class="val-quote">"Ha demostrado capacidad, eficiencia y absoluta honradez en el diseño de sistemas de gestión ISO, matrices IPERC y supervisión de alto rendimiento."</p>
+                            <h4 class="val-company">Systma Global Consulting S.A.C. (SGL)</h4>
+                            <span class="val-signer">Acreditado por Gerencia General</span>
+                        </div>
+                    </div>
+
+                    <div class="slide-content-3" id="v-slide-3">
+                        <div class="val-badge-container">
+                            <i class="fa-solid fa-star val-seal-icon"></i>
+                            <p class="val-quote">"Demostró puntualidad, responsabilidad, honestidad y dedicación absoluta en la gestión integral de seguridad y salud en el trabajo."</p>
+                            <h4 class="val-company">RJ Gonzales Acabados en General E.I.R.L.</h4>
+                            <span class="val-signer">Acreditado por Gerencia General</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="prevVal()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <div class="slider-dots-3">
+                            <span class="dot-3 active" onclick="currentVal(0)"></span>
+                            <span class="dot-3" onclick="currentVal(1)"></span>
+                            <span class="dot-3" onclick="currentVal(2)"></span>
+                            <span class="dot-3" onclick="currentVal(3)"></span>
+                        </div>
+                        <button class="slider-btn" onclick="nextVal()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 4: Soluciones Tecnológicas & Empresa -->
+        <section class="panel" id="panel-4">
+            <div class="section-box">
+                <h2 class="section-title">Soluciones <span>Tecnológicas & Empresa</span></h2>
+                <div class="grid-horizontal">
+                    <div class="card-horizontal-item">
+                        <div>
+                            <h3>Ducknology</h3>
+                            <p>Firma tecnológica enfocada en transformación digital, desarrollo web avanzado, automatización inteligente de flujos de trabajo y optimización de infraestructura cloud para empresas[cite: 4].</p>
+                        </div>
+                        <a href="https://ducknology.tech/" target="_blank" class="btn-card">Visitar Ducknology &rarr;</a>
+                    </div>
+                    <div class="card-horizontal-item">
+                        <div>
+                            <h3>Cero Go SSOMA</h3>
+                            <p>Plataforma digital operativa para la gestión integral de seguridad en construcción (módulos interactivos PAL, inspecciones de Jefatura y reportes flash)[cite: 3].</p>
+                        </div>
+                        <a href="https://cerogo.ducknology.tech/" target="_blank" class="btn-card">Explorar Cero Go &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 5: Contacto Profesional -->
+        <section class="panel" id="panel-5">
+            <div class="section-box contact-horizontal-box">
+                <h2 class="section-title">Contacto <span>Profesional</span></h2>
+                <h3>¡Hola! No te quedes con la duda</h3>
+                <p>Comunícate por este medio, resuelve tus consultas sobre consultoría SSOMA, desarrollo tecnológico o establece alianzas estratégicas de forma directa:</p>
+                <div class="btn-action-group" style="justify-content: center;">
+                    <a href="https://wa.link/a2522j" target="_blank" class="btn-custom btn-wa" style="padding: 1.3rem 3.2rem; font-size: 1.2rem;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i> Escríbeme al WhatsApp
+                    </a>
+                    <a href="https://www.linkedin.com/in/yulisaperalta-8845/" target="_blank" class="btn-custom btn-linkedin" style="padding: 1.3rem 3.2rem; font-size: 1.2rem;">
+                        <i class="fa-brands fa-linkedin-in" style="font-size: 1.5rem;"></i> LinkedIn Pro
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts de Interacción y Transiciones de Carruseles -->
+    <script>
+        const container = document.getElementById('horizontalContainer');
+        
+        window.addEventListener('wheel', (evt) => {
+            if (window.innerWidth > 900) {
+                evt.preventDefault();
+                container.scrollLeft += evt.deltaY * 2.5;
+            }
+        }, { passive: false });
+
+        function scrollToPanel(index) {
+            const panels = document.querySelectorAll('.panel');
+            if (panels[index]) {
+                panels[index].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+            }
+        }
+
+        /* Slider 1: Trayectoria */
+        let currSlide1 = 0;
+        const slides1 = document.querySelectorAll('.slide-content');
+        const dots1 = document.querySelectorAll('.dot');
+        function showSlide1(idx) {
+            slides1.forEach((s, i) => { s.classList.remove('active'); dots1[i].classList.remove('active'); });
+            if(idx >= slides1.length) currSlide1 = 0; if(idx < 0) currSlide1 = slides1.length - 1;
+            slides1[currSlide1].classList.add('active'); dots1[currSlide1].classList.add('active');
+        }
+        function nextSlide() { currSlide1++; showSlide1(currSlide1); }
+        function prevSlide() { currSlide1--; showSlide1(currSlide1); }
+        function currentSlide(i) { currSlide1 = i; showSlide1(currSlide1); }
+
+        /* Slider 2: Certificados */
+        let currSlide2 = 0;
+        const slides2 = document.querySelectorAll('.slide-content-2');
+        const dots2 = document.querySelectorAll('.dot-2');
+        function showSlide2(idx) {
+            slides2.forEach((s, i) => { s.classList.remove('active'); dots2[i].classList.remove('active'); });
+            if(idx >= slides2.length) currSlide2 = 0; if(idx < 0) currSlide2 = slides2.length - 1;
+            slides2[currSlide2].classList.add('active'); dots2[currSlide2].classList.add('active');
+        }
+        function nextCert() { currSlide2++; showSlide2(currSlide2); }
+        function prevCert() { currSlide2--; showSlide2(currSlide2); }
+        function currentCert(i) { currSlide2 = i; showSlide2(currSlide2); }
+
+        /* Slider 3: Valoraciones */
+        let currSlide3 = 0;
+        const slides3 = document.querySelectorAll('.slide-content-3');
+        const dots3 = document.querySelectorAll('.dot-3');
+        function showSlide3(idx) {
+            slides3.forEach((s, i) => { s.classList.remove('active'); dots3[i].classList.remove('active'); });
+            if(idx >= slides3.length) currSlide3 = 0; if(idx < 0) currSlide3 = slides3.length - 1;
+            slides3[currSlide3].classList.add('active'); dots3[currSlide3].classList.add('active');
+        }
+        function nextVal() { currSlide3++; showSlide3(currSlide3); }
+        function prevVal() { currSlide3--; showSlide3(currSlide3); }
+        function currentVal(i) { currSlide3 = i; showSlide3(currSlide3); }
+
+        /* Avance automático general */
+        setInterval(() => {
+            currSlide1++; showSlide1(currSlide1);
+            currSlide2++; showSlide2(currSlide2);
+            currSlide3++; showSlide3(currSlide3);
+        }, 7000);
+    </script>
+
+</body>
+</html>
